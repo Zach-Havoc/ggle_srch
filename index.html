@@ -44,8 +44,15 @@
             .input:focus{box-shadow:0 6px 18px rgba(26,115,232,0.14);border-color:#1a73e8}
 
             .actions{margin-top:20px;display:flex;justify-content:center;gap:12px}
+<<<<<<< Updated upstream
             .btn{padding:10px 18px;border-radius:999px;border:1px solid transparent;background:#f8f9fa;color:#3c4043;font-weight:600;cursor:pointer}
             .btn.primary{background:#1a73e8;color:#fff;border:none;box-shadow:0 8px 20px rgba(26,115,232,0.16)}
+=======
+            .btn{padding:10px 18px;border-radius:999px;border:1px solid transparent;background:var(--surface-alt);color:var(--page-text);font-weight:600;cursor:pointer}
+            .btn.primary{background:var(--accent);color:var(--accent-text);border:none;box-shadow:0 8px 20px rgba(26,115,232,0.16)}
+            .btn.ghost{background:#e8eaed;color:#202124;border:1px solid #bdc1c6;font-weight:600}
+            .btn.ghost:hover{background:#dadce0}
+>>>>>>> Stashed changes
 
             @media (max-width:480px){
                 .logo{font-size:56px}
@@ -63,6 +70,7 @@
                 </h1>
 
                 <div class="search-wrap">
+<<<<<<< Updated upstream
                     <form class="search" id="main-search" action="https://www.google.com/search" method="get">
                         <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
                         <input type="hidden" name="tbm" id="tbm" value="">
@@ -87,19 +95,134 @@
                                 <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">File type</div>
                                     <select name="as_filetype" class="input" style="padding:10px;font-size:14px">
                                         <option value="">any</option>
+=======
+                    <div style="width:100%; max-width:760px; display:flex; flex-direction:column; align-items:center;">
+                        <form class="search" id="main-search" action="https://www.google.com/search" method="get" style="width:100%;">
+                        <div class="input-shell">
+                            <span class="input-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
+                            <button type="button" class="icon-btn" id="btn-mic" title="Search by voice" aria-label="Search by voice">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" stroke="currentColor" stroke-width="2"/><path d="M19 11a7 7 0 01-14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            </button>
+                            <button type="button" class="icon-btn" id="btn-lens" title="Search by image" aria-label="Search by image">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M20 8V6a2 2 0 00-2-2h-2M20 16v2a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2"/></svg>
+                            </button>
+                            <button type="button" class="ai-mode-pill" id="btn-ai-mode">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z" fill="currentColor"/></svg>
+                                <span>AI Mode</span>
+                            </button>
+                        </div>
+
+                        <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+                            <input type="submit" class="btn primary" name="btnK" value="Google Search">
+                            <input type="submit" class="btn" name="btnI" value="I'm Feeling Lucky">
+                            <button type="button" class="btn" id="btn-images">Images</button>
+                            <button type="button" class="btn" id="advanced-toggle">Advanced Search</button>
+                        </div>
+
+                        <div class="shortcuts-row">
+                            <a class="shortcut" href="https://chromewebstore.google.com" target="_blank" rel="noopener">
+                                <span class="shortcut-circle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v9l7.79 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                                </span>
+                                <span class="shortcut-label">Web Store</span>
+                            </a>
+                            <button type="button" class="shortcut" id="btn-add-shortcut">
+                                <span class="shortcut-circle">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                </span>
+                                <span class="shortcut-label">Add shortcut</span>
+                            </button>
+                        </div>
+                        </form>
+
+                        <!-- Advanced Search Panel -->
+                        <form id="advanced-panel" action="https://www.google.com/search" method="get" style="display:none;width:100%;margin-top:18px;text-align:left;padding:18px;border-radius:12px;border:1px solid var(--border);background:var(--surface-alt)">
+                            <div style="font-size:13px;font-weight:700;margin-bottom:14px;color:var(--page-text);opacity:.85">Advanced Search</div>
+                            <div style="display:flex;gap:10px;flex-wrap:wrap">
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">All these words</div>
+                                    <input name="as_q" class="input" style="padding:10px;font-size:14px" placeholder="e.g. cats dogs">
+                                </label>
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Exact phrase</div>
+                                    <input name="as_epq" class="input" style="padding:10px;font-size:14px" placeholder="e.g. best pizza">
+                                </label>
+                            </div>
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Any of these words</div>
+                                    <input name="as_oq" class="input" style="padding:10px;font-size:14px" placeholder="e.g. cat OR dog">
+                                </label>
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">None of these words</div>
+                                    <input name="as_eq" class="input" style="padding:10px;font-size:14px" placeholder="e.g. spam ads">
+                                </label>
+                            </div>
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Site or domain</div>
+                                    <input name="as_sitesearch" class="input" style="padding:10px;font-size:14px" placeholder="e.g. wikipedia.org">
+                                </label>
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">File type</div>
+                                    <select name="as_filetype" class="input" style="padding:10px;font-size:14px;background:var(--input-bg);color:var(--page-text)">
+                                        <option value="">Any format</option>
+>>>>>>> Stashed changes
                                         <option value="pdf">PDF</option>
                                         <option value="doc">DOC</option>
+                                        <option value="docx">DOCX</option>
                                         <option value="xls">XLS</option>
+                                        <option value="xlsx">XLSX</option>
                                         <option value="ppt">PPT</option>
+                                        <option value="pptx">PPTX</option>
+                                        <option value="txt">TXT</option>
                                     </select>
                                 </label>
                             </div>
+<<<<<<< Updated upstream
                             <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
                                 <button type="submit" class="btn primary">Search</button>
                                 <button type="button" class="btn" id="adv-images">Search Images</button>
+=======
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Language</div>
+                                    <select name="lr" class="input" style="padding:10px;font-size:14px;background:var(--input-bg);color:var(--page-text)">
+                                        <option value="">Any language</option>
+                                        <option value="lang_en">English</option>
+                                        <option value="lang_es">Spanish</option>
+                                        <option value="lang_fr">French</option>
+                                        <option value="lang_de">German</option>
+                                        <option value="lang_ja">Japanese</option>
+                                        <option value="lang_zh-CN">Chinese (Simplified)</option>
+                                        <option value="lang_ar">Arabic</option>
+                                        <option value="lang_pt">Portuguese</option>
+                                        <option value="lang_ru">Russian</option>
+                                        <option value="lang_ko">Korean</option>
+                                        <option value="lang_tl">Filipino</option>
+                                    </select>
+                                </label>
+                                <label style="flex:1;min-width:200px">
+                                    <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Date range</div>
+                                    <select name="as_qdr" class="input" style="padding:10px;font-size:14px;background:var(--input-bg);color:var(--page-text)">
+                                        <option value="">Any time</option>
+                                        <option value="d">Past 24 hours</option>
+                                        <option value="w">Past week</option>
+                                        <option value="m">Past month</option>
+                                        <option value="y">Past year</option>
+                                    </select>
+                                </label>
+>>>>>>> Stashed changes
                             </div>
-                        </div>
-                    </form>
+                            <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px">
+                                <input type="reset" class="btn" value="Clear">
+                                <input type="submit" class="btn primary" value="Advanced Search">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </main>
         </div>
@@ -110,11 +233,15 @@
     (function(){
         const advToggle = document.getElementById('advanced-toggle');
         const advPanel = document.getElementById('advanced-panel');
+<<<<<<< Updated upstream
         const btnImages = document.getElementById('btn-images');
         const advImages = document.getElementById('adv-images');
         const tbm = document.getElementById('tbm');
+=======
+>>>>>>> Stashed changes
         const mainForm = document.getElementById('main-search');
 
+<<<<<<< Updated upstream
         if(advToggle){
             advToggle.addEventListener('click', ()=>{
                 if(advPanel.style.display === 'none' || advPanel.style.display==='') advPanel.style.display='block'; else advPanel.style.display='none';
@@ -132,5 +259,123 @@
 
         // Ensure normal submit doesn't include tbm
         mainForm.addEventListener('submit', ()=>{ if(!tbm.value) tbm.removeAttribute('value'); });
+=======
+        // ── Theme system ──────────────────────────────────────────────
+        const themes = {
+            default: {
+                pageBg:'#ffffff', pageText:'#202124', surface:'#ffffff', surfaceAlt:'#f8f9fa', border:'#dfe1e5', shadow:'rgba(32,33,36,0.08)', accent:'#1a73e8', accentStrong:'#1967d2', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78))', logoBlue:'#4285f4', logoRed:'#ea4335', logoYellow:'#fbbc05', logoGreen:'#34a853'
+            },
+            ocean: {
+                pageBg:'#eaf6ff', pageText:'#0e2940', surface:'#f7fcff', surfaceAlt:'#e3f2ff', border:'#9ec7e3', shadow:'rgba(9,82,130,0.16)', accent:'#0f6cbd', accentStrong:'#0b4f84', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(235,247,255,0.95), rgba(205,235,255,0.82))', logoBlue:'#1e88e5', logoRed:'#ef5350', logoYellow:'#ffb300', logoGreen:'#43a047'
+            },
+            sunset: {
+                pageBg:'#fff4e8', pageText:'#4a2c1d', surface:'#fff9f2', surfaceAlt:'#ffe6cc', border:'#f3b97d', shadow:'rgba(166,85,28,0.18)', accent:'#f57c00', accentStrong:'#e65100', accentText:'#ffffff', inputBg:'#fffdf9', overlay:'linear-gradient(135deg, rgba(255,245,232,0.95), rgba(255,223,186,0.8))', logoBlue:'#ff8f00', logoRed:'#e53935', logoYellow:'#fbc02d', logoGreen:'#43a047'
+            },
+            forest: {
+                pageBg:'#edf7ed', pageText:'#18381d', surface:'#f7fcf7', surfaceAlt:'#dcecdc', border:'#86b68d', shadow:'rgba(24,56,29,0.16)', accent:'#2e7d32', accentStrong:'#1b5e20', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(237,247,237,0.95), rgba(203,231,206,0.84))', logoBlue:'#2e7d32', logoRed:'#d32f2f', logoYellow:'#fdd835', logoGreen:'#388e3c'
+            },
+            midnight: {
+                pageBg:'#0f172a', pageText:'#f5f7ff', surface:'#172033', surfaceAlt:'#23324a', border:'#42577b', shadow:'rgba(2,6,23,0.42)', accent:'#5b8cff', accentStrong:'#3e6fe0', accentText:'#ffffff', inputBg:'#111827', overlay:'linear-gradient(135deg, rgba(15,23,42,0.92), rgba(24,35,58,0.82))', logoBlue:'#5b8cff', logoRed:'#ff6b6b', logoYellow:'#ffd166', logoGreen:'#55d98d'
+            },
+            lavender: {
+                pageBg:'#f5ebff', pageText:'#3f2b56', surface:'#fcf7ff', surfaceAlt:'#e9d9ff', border:'#cdb0f0', shadow:'rgba(99,54,145,0.18)', accent:'#8e24aa', accentStrong:'#6a1b9a', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(248,241,255,0.95), rgba(229,210,255,0.82))', logoBlue:'#7b1fa2', logoRed:'#ef5350', logoYellow:'#ffca28', logoGreen:'#43a047'
+            },
+            neon: {
+                pageBg:'#090a1f', pageText:'#e8f9ff', surface:'#121433', surfaceAlt:'#1f2855', border:'#4d5ccd', shadow:'rgba(0,0,0,0.36)', accent:'#00e5ff', accentStrong:'#00bcd4', accentText:'#08131a', inputBg:'#0b102b', overlay:'linear-gradient(135deg, rgba(9,10,31,0.94), rgba(31,40,85,0.84))', logoBlue:'#00b0ff', logoRed:'#ff4d6d', logoYellow:'#ffe082', logoGreen:'#7cff6b'
+            },
+            rose: {
+                pageBg:'#fff0f4', pageText:'#4b1f31', surface:'#fff8fb', surfaceAlt:'#ffe0eb', border:'#efb4c8', shadow:'rgba(145,55,92,0.16)', accent:'#ec407a', accentStrong:'#d81b60', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(255,240,244,0.95), rgba(255,216,230,0.82))', logoBlue:'#5c6bc0', logoRed:'#ff4f81', logoYellow:'#ffcc80', logoGreen:'#66bb6a'
+            }
+        };
+
+        function applyTheme(themeName){
+            const theme = themes[themeName] || themes.default;
+            const root = document.documentElement;
+            root.style.setProperty('--page-bg', theme.pageBg);
+            root.style.setProperty('--page-text', theme.pageText);
+            root.style.setProperty('--surface', theme.surface);
+            root.style.setProperty('--surface-alt', theme.surfaceAlt);
+            root.style.setProperty('--border', theme.border);
+            root.style.setProperty('--shadow', theme.shadow);
+            root.style.setProperty('--accent', theme.accent);
+            root.style.setProperty('--accent-strong', theme.accentStrong);
+            root.style.setProperty('--accent-text', theme.accentText);
+            root.style.setProperty('--input-bg', theme.inputBg);
+            root.style.setProperty('--overlay', theme.overlay);
+            root.style.setProperty('--logo-blue', theme.logoBlue);
+            root.style.setProperty('--logo-red', theme.logoRed);
+            root.style.setProperty('--logo-yellow', theme.logoYellow);
+            root.style.setProperty('--logo-green', theme.logoGreen);
+            localStorage.setItem('google-theme', themeName);
+            themeCards.forEach(card => card.classList.toggle('active', card.dataset.theme === themeName));
+        }
+
+        function applyBackgroundImage(dataUrl){
+            const root = document.documentElement;
+            if(dataUrl){
+                root.style.setProperty('--bg-image', `url("${dataUrl}")`);
+                root.style.setProperty('--bg-opacity', '1');
+                localStorage.setItem('google-theme-image', dataUrl);
+            } else {
+                root.style.setProperty('--bg-image', 'none');
+                root.style.setProperty('--bg-opacity', '0');
+                localStorage.removeItem('google-theme-image');
+            }
+        }
+
+        themeCards.forEach(card => {
+            card.addEventListener('click', () => applyTheme(card.dataset.theme));
+        });
+
+        if(imageInput){
+            imageInput.addEventListener('change', (event) => {
+                const file = event.target.files && event.target.files[0];
+                if(!file) return;
+                const reader = new FileReader();
+                reader.onload = () => applyBackgroundImage(reader.result);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        if(clearImageBtn){
+            clearImageBtn.addEventListener('click', () => applyBackgroundImage(''));
+        }
+
+        if(themeToggle && themePanel){
+            themeToggle.addEventListener('click', () => themePanel.classList.toggle('open'));
+            document.addEventListener('click', (e) => {
+                if(!themePanel.contains(e.target) && !themeToggle.contains(e.target)){
+                    themePanel.classList.remove('open');
+                }
+            });
+        }
+
+        // ── Main search buttons ───────────────────────────────────────
+        const qInput = document.getElementById('q');
+
+        document.getElementById('btn-images').addEventListener('click', () => {
+            const q = qInput.value.trim();
+            if(q){
+                window.location.href = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(q);
+            } else {
+                window.location.href = 'images.html';
+            }
+        });
+
+        // ── Advanced Search toggle ────────────────────────────────────
+        if(advToggle && advPanel){
+            advToggle.addEventListener('click', () => {
+                const isOpen = advPanel.style.display !== 'none';
+                advPanel.style.display = isOpen ? 'none' : 'block';
+                advToggle.textContent = isOpen ? 'Advanced Search' : 'Hide Advanced';
+            });
+        }
+
+        // ── Restore saved theme ───────────────────────────────────────
+        const savedTheme = localStorage.getItem('google-theme') || 'default';
+        const savedImage = localStorage.getItem('google-theme-image');
+        applyTheme(savedTheme);
+        if(savedImage) applyBackgroundImage(savedImage);
+>>>>>>> Stashed changes
     })();
 </script>
