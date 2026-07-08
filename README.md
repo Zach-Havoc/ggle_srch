@@ -37,5 +37,7 @@ as_eq: Advanced Search - "none of these words".
 Collaboration Workflow
 
 Briefly describe how your team managed the codebase. Did you encounter any merge conflicts? How did you resolve them?
+I encountered conflicts when writing the collaborative summary. Immanuel and I kept having merge conflicts when finalizing the finalization of the outputs. We resolved them by manually selecting the correct code blocks in VS Code before pushing the final build. This was a challenging but rewarding experience that taught us the importance of communication and teamwork. 
+
 
 To keep our codebase organized, we avoided working directly on the main branch, relying instead on descriptive feature branches and pull requests for code integration. We ran into a merge conflict when combining our navigation links, which we quickly settled by hop-on a quick call to manually select the correct code blocks in VS Code before pushing the final build.
