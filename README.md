@@ -10,11 +10,11 @@ Team Members & Responsibilities
 
 This project was developed collaboratively using a strict Git Feature Branch Workflow.
 
-Saipoden Banto: [Assigned Page/Feature, Advanced Search and Finalization of Code]
+Saipoden Banto: [Assigned Page/Feature, Advanced Search and Finalization of Code Function]
 
 Immanuel Siyasat: [Assigned Page/Feature, Main Page of Google Search]
 
-Princess Iris Gayos: [Assigned Page/Feature, Image Search]
+Princess Iris Gayos: [Assigned Page/Feature, Image Search Interface]
 
 Technical Architecture (URL Parameters)
 
