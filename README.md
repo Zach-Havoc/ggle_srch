@@ -1,6 +1,6 @@
 Google Search Clone
 
-Live Demo: https://github.com/Zach-Havoc/ggle_srch.git
+Live Demo: [https://github.com/Zach-Havoc/ggle_srch.git]
 
 Project Overview
 
@@ -10,11 +10,11 @@ Team Members & Responsibilities
 
 This project was developed collaboratively using a strict Git Feature Branch Workflow.
 
-Saipoden Banto: [Assigned Page/Feature, Advanced Search and Finalization of Code Function]
+[Saipoden Banto] : [Assigned Page/Feature, Advanced Search and Finalization of Code Function]
 
-Immanuel Siyasat: [Assigned Page/Feature, Main Page of Google Search]
+[Immanuel Siyasat] : [Assigned Page/Feature, Main Page of Google Search]
 
-Princess Iris Gayos: [Assigned Page/Feature, Image Search Interface]
+[Princess Iris Gayos] : [Assigned Page/Feature, Image Search Interface]
 
 Technical Architecture (URL Parameters)
 
@@ -38,4 +38,4 @@ Collaboration Workflow
 
 Briefly describe how your team managed the codebase. Did you encounter any merge conflicts? How did you resolve them?
 
-[Insert 2-3 sentences explaining your team's pull request process and conflict resolution strategy here].
+To keep our codebase organized, we avoided working directly on the main branch, relying instead on descriptive feature branches and pull requests for code integration. We ran into a merge conflict when combining our navigation links, which we quickly settled by hop-on a quick call to manually select the correct code blocks in VS Code before pushing the final build.
