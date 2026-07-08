@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Search</title>
         <style>
-<<<<<<< HEAD
-=======
             :root{
                 --page-bg:#ffffff;
                 --page-text:#202124;
@@ -27,14 +25,11 @@
                 --logo-green:#34a853;
             }
 
->>>>>>> imman
             *{box-sizing:border-box}
             html,body{height:100%}
             body{
                 margin:0;
                 font-family: Arial, Helvetica, sans-serif;
-
-=======
                 background:var(--page-bg);
                 color:var(--page-text);
                 transition:background .25s ease,color .25s ease;
@@ -136,13 +131,10 @@
             .logo .c4{color:var(--logo-blue)}
             .logo .c5{color:var(--logo-green)}
             .logo .c6{color:var(--logo-red)}
->>>>>>> imman
 
             .search-wrap{display:flex;justify-content:center}
             .search{width:clamp(420px,70vw,760px)}
 
-<<<<<<< HEAD
-=======
             .input-shell{
                 position:relative;
                 display:flex;
@@ -158,14 +150,11 @@
             }
             .input-shell:hover,.input-shell:focus-within{box-shadow:0 4px 16px rgba(32,33,36,0.16);border-color:transparent}
             .input-icon{flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:var(--page-text);opacity:.55}
->>>>>>> imman
             .input{
                 width:100%;
                 padding:16px 18px;
                 font-size:20px;
                 border-radius:999px;
-
-=======
                 border:1px solid var(--border);
                 outline:none;
                 background:var(--input-bg);
@@ -240,16 +229,11 @@
                 .logo{font-size:56px}
                 .input{font-size:16px;padding:12px 6px}
                 .ai-mode-pill span{display:none}
->>>>>>> imman
             }
         </style>
     </head>
     <body>
-<<<<<<< HEAD
-        <div class="header"><a href="https://mail.google.com" style="color:inherit;text-decoration:none">Gmail</a>&nbsp;&nbsp;<a href="https://www.google.com/imghp" style="color:inherit;text-decoration:none">Images</a></div>
-=======
         <div class="header"><a href="https://mail.google.com">Gmail</a><a href="https://www.google.com/imghp">Images</a></div>
->>>>>>> imman
         <div class="container">
             <main class="main">
                 <h1 class="logo" aria-label="Google">
@@ -259,12 +243,6 @@
 
                 <div class="search-wrap">
                     <form class="search" id="main-search" action="https://www.google.com/search" method="get">
-<<<<<<< HEAD
-                        <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
-                        <input type="hidden" name="tbm" id="tbm" value="">
-
-                        <div style="margin-top:12px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-=======
                         <div class="input-shell">
                             <span class="input-icon" aria-hidden="true">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -284,26 +262,11 @@
                         </div>
 
                         <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
->>>>>>> imman
                             <button type="submit" class="btn primary" id="btn-search">Google Search</button>
                             <button type="button" class="btn" id="btn-images">Search Images</button>
                             <button type="button" class="btn" id="advanced-toggle">Advanced Search</button>
                         </div>
 
-<<<<<<< HEAD
-                        <div id="advanced-panel" style="display:none;margin-top:18px;text-align:left;max-width:760px;margin-left:auto;margin-right:auto;padding:14px;border-radius:12px;border:1px solid #e6e6e6;background:#fbfbfd">
-                            <div style="display:flex;gap:10px;flex-wrap:wrap">
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">All these words</div><input name="as_q" class="input" style="padding:10px;font-size:14px" placeholder="all these words"></label>
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Exact phrase</div><input name="as_epq" class="input" style="padding:10px;font-size:14px" placeholder="exact phrase"></label>
-                            </div>
-                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Any of these words</div><input name="as_oq" class="input" style="padding:10px;font-size:14px" placeholder="any of these words"></label>
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">None of these words</div><input name="as_eq" class="input" style="padding:10px;font-size:14px" placeholder="none of these words"></label>
-                            </div>
-                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Site or domain</div><input name="as_sitesearch" class="input" style="padding:10px;font-size:14px" placeholder="example.com"></label>
-                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">File type</div>
-=======
                         <div class="shortcuts-row">
                             <a class="shortcut" href="https://chromewebstore.google.com" target="_blank" rel="noopener">
                                 <span class="shortcut-circle">
@@ -331,7 +294,6 @@
                             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
                                 <label style="flex:1;min-width:200px"><div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Site or domain</div><input name="as_sitesearch" class="input" style="padding:10px;font-size:14px" placeholder="example.com"></label>
                                 <label style="flex:1;min-width:200px"><div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">File type</div>
->>>>>>> imman
                                     <select name="as_filetype" class="input" style="padding:10px;font-size:14px">
                                         <option value="">any</option>
                                         <option value="pdf">PDF</option>
@@ -350,8 +312,6 @@
                 </div>
             </main>
         </div>
-<<<<<<< HEAD
-=======
         <div class="theme-panel-wrap">
             <button class="theme-toggle" id="theme-toggle" type="button">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 20l1-4.5L15.5 5 19 8.5 8.5 19 4 20z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 7.5L16.5 11" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -376,7 +336,6 @@
                 <button class="btn ghost" id="clear-image" type="button">Reset background</button>
             </div>
         </div>
->>>>>>> imman
     </body>
 </html>
 
@@ -388,12 +347,6 @@
         const advImages = document.getElementById('adv-images');
         const tbm = document.getElementById('tbm');
         const mainForm = document.getElementById('main-search');
-<<<<<<< HEAD
-
-        if(advToggle){
-            advToggle.addEventListener('click', ()=>{
-                if(advPanel.style.display === 'none' || advPanel.style.display==='') advPanel.style.display='block'; else advPanel.style.display='none';
-=======
         const themeToggle = document.getElementById('theme-toggle');
         const themePanel = document.getElementById('theme-panel');
         const themeCards = Array.from(document.querySelectorAll('.theme-card'));
@@ -485,7 +438,6 @@
         if(themeToggle && themePanel){
             themeToggle.addEventListener('click', () => {
                 themePanel.classList.toggle('open');
->>>>>>> imman
             });
         }
 
@@ -498,16 +450,11 @@
         if(btnImages) btnImages.addEventListener('click', submitAsImages);
         if(advImages) advImages.addEventListener('click', submitAsImages);
 
-<<<<<<< HEAD
-        // Ensure normal submit doesn't include tbm
-        mainForm.addEventListener('submit', ()=>{ if(!tbm.value) tbm.removeAttribute('value'); });
-=======
         mainForm.addEventListener('submit', ()=>{ if(!tbm.value) tbm.removeAttribute('value'); });
 
         const savedTheme = localStorage.getItem('google-theme') || 'default';
         const savedImage = localStorage.getItem('google-theme-image');
         applyTheme(savedTheme);
         if(savedImage) applyBackgroundImage(savedImage);
->>>>>>> imman
     })();
 </script>
