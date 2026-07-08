@@ -1,6 +1,6 @@
 **Google Search Clone**
 
-Live Demo: https://github.com/Zach-Havoc/ggle_srch.git
+Live Demo: https://zach-havoc.github.io/ggle_srch/
 
 
 **Project Overview**
