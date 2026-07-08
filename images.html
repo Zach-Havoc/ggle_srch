@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Google Images</title>
+        <style>
+            :root{
+                --page-bg:#ffffff;
+                --page-text:#202124;
+                --surface:#ffffff;
+                --surface-alt:#f8f9fa;
+                --border:#dfe1e5;
+                --shadow:rgba(32,33,36,0.08);
+                --accent:#1a73e8;
+                --accent-strong:#1967d2;
+                --accent-text:#ffffff;
+                --input-bg:#ffffff;
+                --overlay:linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+                --bg-image:none;
+                --bg-opacity:0;
+                --logo-blue:#4285f4;
+                --logo-red:#ea4335;
+                --logo-yellow:#fbbc05;
+                --logo-green:#34a853;
+            }
+
+            *{box-sizing:border-box}
+            html,body{height:100%}
+            body{
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+                background:var(--page-bg);
+                color:var(--page-text);
+                transition:background .25s ease,color .25s ease;
+                position:relative;
+                overflow-x:hidden;
+            }
+            body::before{
+                content:"";
+                position:fixed;
+                inset:0;
+                background-image:var(--bg-image);
+                background-size:cover;
+                background-position:center;
+                opacity:var(--bg-opacity);
+                z-index:-2;
+                transition:opacity .3s ease;
+            }
+            body::after{
+                content:"";
+                position:fixed;
+                inset:0;
+                background:var(--overlay);
+                z-index:-1;
+            }
+
+            .header{position:fixed;top:14px;right:24px;font-size:13px;color:var(--page-text);display:flex;gap:14px;align-items:center;z-index:5}
+            .header a{color:inherit;text-decoration:none}
+
+            .container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+
+            .main{width:100%;max-width:900px;text-align:center;padding:36px}
+
+            .logo-container{display:inline-block;position:relative;margin-bottom:22px}
+            .logo{font-weight:700;font-size:88px;margin:0;letter-spacing:0;cursor:pointer;transition:opacity 0.2s ease;line-height:1}
+            .logo:hover{opacity:0.8}
+            .logo span{display:inline-block;margin:0 1px}
+            .logo .c1{color:var(--logo-blue)}
+            .logo .c2{color:var(--logo-red)}
+            .logo .c3{color:var(--logo-yellow)}
+            .logo .c4{color:var(--logo-blue)}
+            .logo .c5{color:var(--logo-green)}
+            .logo .c6{color:var(--logo-red)}
+            
+            .sub-text{
+                position:absolute;
+                bottom:-12px;
+                right:4px;
+                color:var(--accent);
+                font-size:16px;
+                font-weight:bold;
+            }
+
+            .search-wrap{display:flex;justify-content:center}
+            .search{width:clamp(420px,70vw,760px)}
+
+            .input{
+                width:100%;
+                padding:16px 18px;
+                font-size:20px;
+                border-radius:999px;
+                border:1px solid var(--border);
+                outline:none;
+                background:var(--input-bg);
+                color:var(--page-text);
+                box-shadow:0 4px 12px var(--shadow);
+            }
+            .input:focus{box-shadow:0 6px 18px rgba(26,115,232,0.14);border-color:var(--accent)}
+
+            .btn{padding:10px 18px;border-radius:999px;border:1px solid transparent;background:var(--surface-alt);color:var(--page-text);font-weight:600;cursor:pointer;font-size:14px}
+            .btn:hover{background:#f1f1f1}
+            .btn.primary{background:var(--accent);color:var(--accent-text);border:none;box-shadow:0 8px 20px rgba(26,115,232,0.16)}
+            .btn.primary:hover{background:var(--accent-strong)}
+
+            .filter-section{margin-top:18px;padding:14px;border-radius:12px;border:1px solid var(--border);background:var(--surface-alt);max-width:760px;margin-left:auto;margin-right:auto}
+            .filter-group{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+            .filter-group:last-child{margin-bottom:0}
+            .filter-label{font-size:12px;color:var(--page-text);opacity:.75;display:block;margin-bottom:6px;font-weight:500}
+            .filter-group select{padding:8px 12px;font-size:14px;border-radius:8px;border:1px solid var(--border);background:var(--input-bg);color:var(--page-text)}
+            .filter-group select:focus{outline:none;border-color:var(--accent);box-shadow:0 1px 3px rgba(26,115,232,0.2)}
+
+            .quick-filters{margin-top:14px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+            .quick-filter-btn{padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--page-text);font-size:13px;cursor:pointer;transition:all 0.2s}
+            .quick-filter-btn:hover{border-color:var(--accent);background:var(--surface-alt)}
+            .quick-filter-btn.active{border-color:var(--accent);background:var(--accent);color:var(--accent-text)}
+
+            @media (max-width:480px){
+                .logo{font-size:56px}
+                .input{font-size:16px;padding:12px}
+                .sub-text{font-size:12px;bottom:-8px}
+                .filter-group{flex-direction:column}
+                .quick-filters{gap:6px}
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Konektado pabalik sa iyong pangunahing web page -->
+        <div class="header"><a href="index.html" style="color:inherit;text-decoration:none">Google Search</a></div>
+        
+        <div class="container">
+            <main class="main">
+                <div class="logo-container">
+                    <a href="index.html" style="text-decoration:none;color:inherit">
+                        <h1 class="logo" aria-label="Google Images"><span class="c1">G</span><span class="c2">o</span><span class="c3">o</span><span class="c4">g</span><span class="c5">l</span><span class="c6">e</span></h1>
+                        <div class="sub-text">images</div>
+                    </a>
+                </div>
+
+                <div class="search-wrap">
+                    <form class="search" id="image-search" action="https://www.google.com/search" method="get">
+                        <!-- Parameter para piliting mapunta sa Google Image Search ang results -->
+                        <input type="hidden" name="tbm" value="isch">
+                        
+                        <input class="input" id="q" type="text" name="q" placeholder="Search Google Images" autocomplete="off" required autofocus>
+
+                        <div style="margin-top:12px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+                            <button type="submit" class="btn primary">Search Images</button>
+                            <button type="button" class="btn" id="filters-toggle">Tools</button>
+                        </div>
+
+                        <!-- Image Search Filters Panel -->
+                        <div id="filters-panel" style="display:none" class="filter-section">
+                            <!-- Image Size Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">Image Size</label>
+                                <select name="imgsz" style="flex:1;min-width:150px">
+                                    <option value="">Any size</option>
+                                    <option value="isz:l">Large</option>
+                                    <option value="isz:m">Medium</option>
+                                    <option value="isz:i">Icon</option>
+                                    <option value="isz:gt400x300">Larger than 400x300</option>
+                                </select>
+                            </div>
+
+                            <!-- Image Type Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">Image Type</label>
+                                <select name="imgtype" style="flex:1;min-width:150px">
+                                    <option value="">All types</option>
+                                    <option value="clipart">Clipart</option>
+                                    <option value="lineart">Line art</option>
+                                    <option value="face">Faces</option>
+                                    <option value="photo">Photo</option>
+                                    <option value="animated">Animated</option>
+                                </select>
+                            </div>
+
+                            <!-- Color Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">Color</label>
+                                <select name="imgcolor" style="flex:1;min-width:150px">
+                                    <option value="">Any color</option>
+                                    <option value="color">Color only</option>
+                                    <option value="gray">Grayscale</option>
+                                    <option value="bw">Black and white</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                </select>
+                            </div>
+
+                            <!-- Usage Rights Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">Usage Rights</label>
+                                <select name="imglicense" style="flex:1;min-width:150px">
+                                    <option value="">All licenses</option>
+                                    <option value="cc_publicdomain">Public domain</option>
+                                    <option value="cc_attribute">Creative Commons (with attribution)</option>
+                                    <option value="cc_sharealike">Noncommercial/Sharealike</option>
+                                </select>
+                            </div>
+
+                            <!-- File Type Filter -->
+                            <div class="filter-group">
+                                <label class="filter-label">File Type</label>
+                                <select name="filetype" style="flex:1;min-width:150px">
+                                    <option value="">All formats</option>
+                                    <option value="jpg">JPG</option>
+                                    <option value="png">PNG</option>
+                                    <option value="gif">GIF</option>
+                                    <option value="svg">SVG</option>
+                                    <option value="webp">WebP</option>
+                                </select>
+                            </div>
+
+                            <!-- Quick Filter Buttons -->
+                            <div class="quick-filters">
+                                <button type="button" class="quick-filter-btn" data-param="tbm" data-value="isch">Face Search</button>
+                                <button type="button" class="quick-filter-btn" data-param="tbm" data-value="isch">Recent</button>
+                                <button type="button" class="quick-filter-btn" data-param="tbm" data-value="isch">Search More</button>
+                            </div>
+
+                            <div style="display:flex;justify-content:center;gap:8px;margin-top:12px">
+                                <button type="submit" class="btn primary">Search with Filters</button>
+                                <button type="button" class="btn" id="clear-filters">Clear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <script>
+            (function(){
+                // Theme system
+                const themes = {
+                    default: {
+                        pageBg:'#ffffff', pageText:'#202124', surface:'#ffffff', surfaceAlt:'#f8f9fa', border:'#dfe1e5', shadow:'rgba(32,33,36,0.08)', accent:'#1a73e8', accentStrong:'#1967d2', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78))', logoBlue:'#4285f4', logoRed:'#ea4335', logoYellow:'#fbbc05', logoGreen:'#34a853'
+                    },
+                    ocean: {
+                        pageBg:'#eaf6ff', pageText:'#0e2940', surface:'#f7fcff', surfaceAlt:'#e3f2ff', border:'#9ec7e3', shadow:'rgba(9,82,130,0.16)', accent:'#0f6cbd', accentStrong:'#0b4f84', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(235,247,255,0.95), rgba(205,235,255,0.82))', logoBlue:'#1e88e5', logoRed:'#ef5350', logoYellow:'#ffb300', logoGreen:'#43a047'
+                    },
+                    sunset: {
+                        pageBg:'#fff4e8', pageText:'#4a2c1d', surface:'#fff9f2', surfaceAlt:'#ffe6cc', border:'#f3b97d', shadow:'rgba(166,85,28,0.18)', accent:'#f57c00', accentStrong:'#e65100', accentText:'#ffffff', inputBg:'#fffdf9', overlay:'linear-gradient(135deg, rgba(255,245,232,0.95), rgba(255,223,186,0.8))', logoBlue:'#ff8f00', logoRed:'#e53935', logoYellow:'#fbc02d', logoGreen:'#43a047'
+                    },
+                    forest: {
+                        pageBg:'#edf7ed', pageText:'#18381d', surface:'#f7fcf7', surfaceAlt:'#dcecdc', border:'#86b68d', shadow:'rgba(24,56,29,0.16)', accent:'#2e7d32', accentStrong:'#1b5e20', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(237,247,237,0.95), rgba(203,231,206,0.84))', logoBlue:'#2e7d32', logoRed:'#d32f2f', logoYellow:'#fdd835', logoGreen:'#388e3c'
+                    },
+                    midnight: {
+                        pageBg:'#0f172a', pageText:'#f5f7ff', surface:'#172033', surfaceAlt:'#23324a', border:'#42577b', shadow:'rgba(2,6,23,0.42)', accent:'#5b8cff', accentStrong:'#3e6fe0', accentText:'#ffffff', inputBg:'#111827', overlay:'linear-gradient(135deg, rgba(15,23,42,0.92), rgba(24,35,58,0.82))', logoBlue:'#5b8cff', logoRed:'#ff6b6b', logoYellow:'#ffd166', logoGreen:'#55d98d'
+                    },
+                    lavender: {
+                        pageBg:'#f5ebff', pageText:'#3f2b56', surface:'#fcf7ff', surfaceAlt:'#e9d9ff', border:'#cdb0f0', shadow:'rgba(99,54,145,0.18)', accent:'#8e24aa', accentStrong:'#6a1b9a', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(248,241,255,0.95), rgba(229,210,255,0.82))', logoBlue:'#7b1fa2', logoRed:'#ef5350', logoYellow:'#ffca28', logoGreen:'#43a047'
+                    },
+                    neon: {
+                        pageBg:'#090a1f', pageText:'#e8f9ff', surface:'#121433', surfaceAlt:'#1f2855', border:'#4d5ccd', shadow:'rgba(0,0,0,0.36)', accent:'#00e5ff', accentStrong:'#00bcd4', accentText:'#08131a', inputBg:'#0b102b', overlay:'linear-gradient(135deg, rgba(9,10,31,0.94), rgba(31,40,85,0.84))', logoBlue:'#00b0ff', logoRed:'#ff4d6d', logoYellow:'#ffe082', logoGreen:'#7cff6b'
+                    },
+                    rose: {
+                        pageBg:'#fff0f4', pageText:'#4b1f31', surface:'#fff8fb', surfaceAlt:'#ffe0eb', border:'#efb4c8', shadow:'rgba(145,55,92,0.16)', accent:'#ec407a', accentStrong:'#d81b60', accentText:'#ffffff', inputBg:'#ffffff', overlay:'linear-gradient(135deg, rgba(255,240,244,0.95), rgba(255,216,230,0.82))', logoBlue:'#5c6bc0', logoRed:'#ff4f81', logoYellow:'#ffcc80', logoGreen:'#66bb6a'
+                    }
+                };
+
+                function applyTheme(themeName){
+                    const theme = themes[themeName] || themes.default;
+                    const root = document.documentElement;
+                    root.style.setProperty('--page-bg', theme.pageBg);
+                    root.style.setProperty('--page-text', theme.pageText);
+                    root.style.setProperty('--surface', theme.surface);
+                    root.style.setProperty('--surface-alt', theme.surfaceAlt);
+                    root.style.setProperty('--border', theme.border);
+                    root.style.setProperty('--shadow', theme.shadow);
+                    root.style.setProperty('--accent', theme.accent);
+                    root.style.setProperty('--accent-strong', theme.accentStrong);
+                    root.style.setProperty('--accent-text', theme.accentText);
+                    root.style.setProperty('--input-bg', theme.inputBg);
+                    root.style.setProperty('--overlay', theme.overlay);
+                    root.style.setProperty('--logo-blue', theme.logoBlue);
+                    root.style.setProperty('--logo-red', theme.logoRed);
+                    root.style.setProperty('--logo-yellow', theme.logoYellow);
+                    root.style.setProperty('--logo-green', theme.logoGreen);
+                }
+
+                function applyBackgroundImage(dataUrl){
+                    const root = document.documentElement;
+                    if(dataUrl){
+                        root.style.setProperty('--bg-image', `url("${dataUrl}")`);
+                        root.style.setProperty('--bg-opacity', '1');
+                    } else {
+                        root.style.setProperty('--bg-image', 'none');
+                        root.style.setProperty('--bg-opacity', '0');
+                    }
+                }
+
+                // Load saved theme from localStorage
+                const savedTheme = localStorage.getItem('google-theme') || 'default';
+                const savedImage = localStorage.getItem('google-theme-image');
+                applyTheme(savedTheme);
+                if(savedImage) applyBackgroundImage(savedImage);
+
+                // Filter panel functionality
+                const filtersToggle = document.getElementById('filters-toggle');
+                const filtersPanel = document.getElementById('filters-panel');
+                const clearFiltersBtn = document.getElementById('clear-filters');
+                const searchForm = document.getElementById('image-search');
+
+                // Toggle filters panel
+                if(filtersToggle){
+                    filtersToggle.addEventListener('click', (e)=>{
+                        e.preventDefault();
+                        if(filtersPanel.style.display === 'none' || filtersPanel.style.display==='') {
+                            filtersPanel.style.display='block';
+                        } else {
+                            filtersPanel.style.display='none';
+                        }
+                    });
+                }
+
+                // Clear filters
+                if(clearFiltersBtn){
+                    clearFiltersBtn.addEventListener('click', (e)=>{
+                        e.preventDefault();
+                        const selects = filtersPanel.querySelectorAll('select');
+                        selects.forEach(select => {
+                            select.value = '';
+                        });
+                    });
+                }
+
+                // Search form submission
+                if(searchForm){
+                    searchForm.addEventListener('submit', function(e){
+                        // Add tbm=isch to always search in Google Images
+                        const tmbInput = this.querySelector('input[name="tbm"]');
+                        if(tmbInput) {
+                            tmbInput.value = 'isch';
+                        }
+                    });
+                }
+            })();
+        </script>
+    </body>
+</html>

@@ -233,7 +233,7 @@
         </style>
     </head>
     <body>
-        <div class="header"><a href="https://mail.google.com">Gmail</a><a href="https://www.google.com/imghp">Images</a></div>
+        <div class="header"><a href="https://mail.google.com">Gmail</a><a href="images.html">Images</a></div>
         <div class="container">
             <main class="main">
                 <h1 class="logo" aria-label="Google">
@@ -242,7 +242,7 @@
                 </h1>
 
                 <div class="search-wrap">
-                    <form class="search" id="main-search" action="https://www.google.com/search" method="get">
+                    <form class="search" id="main-search" action="images.html" method="get">
                         <div class="input-shell">
                             <span class="input-icon" aria-hidden="true">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -262,8 +262,7 @@
                         </div>
 
                         <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
-                            <button type="submit" class="btn primary" id="btn-search">Google Search</button>
-                            <button type="button" class="btn" id="btn-images">Search Images</button>
+                            <button type="submit" class="btn primary" id="btn-search">Images</button>
                             <button type="button" class="btn" id="advanced-toggle">Advanced Search</button>
                         </div>
 
@@ -305,7 +304,6 @@
                             </div>
                             <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
                                 <button type="submit" class="btn primary">Search</button>
-                                <button type="button" class="btn" id="adv-images">Search Images</button>
                             </div>
                         </div>
                     </form>
@@ -343,8 +341,6 @@
     (function(){
         const advToggle = document.getElementById('advanced-toggle');
         const advPanel = document.getElementById('advanced-panel');
-        const btnImages = document.getElementById('btn-images');
-        const advImages = document.getElementById('adv-images');
         const tbm = document.getElementById('tbm');
         const mainForm = document.getElementById('main-search');
         const themeToggle = document.getElementById('theme-toggle');
@@ -442,15 +438,13 @@
         }
 
         function submitAsImages(){
-            tbm.value='isch';
+            mainForm.action = 'images.html';
             mainForm.submit();
-            tbm.value='';
         }
 
-        if(btnImages) btnImages.addEventListener('click', submitAsImages);
-        if(advImages) advImages.addEventListener('click', submitAsImages);
-
-        mainForm.addEventListener('submit', ()=>{ if(!tbm.value) tbm.removeAttribute('value'); });
+        mainForm.addEventListener('submit', function(e){
+            mainForm.action = 'images.html';
+        });
 
         const savedTheme = localStorage.getItem('google-theme') || 'default';
         const savedImage = localStorage.getItem('google-theme-image');
