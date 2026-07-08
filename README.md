@@ -1,6 +1,6 @@
 Google Search Clone
 
-Live Demo: [Insert GitHub Pages URL Here]
+Live Demo: https://github.com/Zach-Havoc/ggle_srch.git
 
 Project Overview
 
@@ -10,11 +10,11 @@ Team Members & Responsibilities
 
 This project was developed collaboratively using a strict Git Feature Branch Workflow.
 
-Saipoden Banto: [Assigned Page/Feature, e.g., Standard Search & 'I'm Feeling Lucky' Button]
+Saipoden Banto: [Assigned Page/Feature, Advanced Search and Finalization of Code]
 
-Immanuel Siyasat: [Assigned Page/Feature, e.g., Image Search & Navigation]
+Immanuel Siyasat: [Assigned Page/Feature, Main Page of Google Search]
 
-Princess Iris Gayos: [Assigned Page/Feature, e.g., Advanced Search & CSS Grid Layout]
+Princess Iris Gayos: [Assigned Page/Feature, Image Search]
 
 Technical Architecture (URL Parameters)
 
