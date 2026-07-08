@@ -16,7 +16,71 @@
 
             .header{position:fixed;top:14px;right:24px;font-size:13px;color:#5f6368}
 
+<<<<<<< Updated upstream
             .container{min-height:100vh;display:flex;align-items:center;justify-content:center}
+=======
+            .theme-panel-wrap{position:fixed;bottom:20px;right:24px;width:min(92vw,340px);pointer-events:none;z-index:5;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+            .theme-toggle,.theme-card,.btn,.upload-card{font:inherit}
+            .theme-toggle{
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+                border:none;
+                border-radius:999px;
+                padding:11px 20px 11px 16px;
+                background:var(--surface);
+                color:var(--page-text);
+                border:1px solid var(--border);
+                box-shadow:0 1px 3px rgba(0,0,0,0.12),0 4px 12px rgba(0,0,0,0.08);
+                cursor:pointer;
+                pointer-events:auto;
+                font-size:14px;
+                font-weight:500;
+                order:2;
+                transition:box-shadow .15s ease,transform .15s ease;
+            }
+            .theme-toggle:hover{box-shadow:0 2px 6px rgba(0,0,0,0.16),0 6px 16px rgba(0,0,0,0.10);transform:translateY(-1px)}
+            .theme-toggle svg{flex:0 0 auto;color:var(--accent)}
+            .theme-panel{
+                position:relative;
+                width:min(88vw,360px);
+                padding:20px;
+                border-radius:20px;
+                background:var(--surface);
+                border:1px solid var(--border);
+                box-shadow:0 20px 48px rgba(0,0,0,0.18);
+                display:none;
+                pointer-events:auto;
+                backdrop-filter:blur(10px);
+                order:1;
+                transform-origin:bottom right;
+                animation:theme-panel-in .16s ease;
+            }
+            .theme-panel.open{display:block}
+            @keyframes theme-panel-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+            .theme-section-title{font-size:15px;font-weight:700;color:var(--page-text);opacity:.9;margin-bottom:16px;text-align:left}
+            .theme-grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px}
+            .theme-card{
+                display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+                border:1px solid var(--border);border-radius:12px;padding:12px;background:var(--surface-alt);color:var(--page-text);cursor:pointer;
+                transition:box-shadow .15s ease,transform .15s ease;
+            }
+            .theme-card:hover{box-shadow:0 2px 8px var(--shadow);transform:translateY(-1px)}
+            .theme-card.active{outline:2px solid var(--accent)}
+            .swatch{width:100%;height:18px;border-radius:999px;display:block}
+            .swatch-default{background:linear-gradient(90deg,#4285f4,#ea4335,#fbbc05,#34a853)}
+            .swatch-ocean{background:linear-gradient(90deg,#0f4c81,#1a73e8,#39d0ff)}
+            .swatch-sunset{background:linear-gradient(90deg,#f57c00,#f44336,#ffb300)}
+            .swatch-forest{background:linear-gradient(90deg,#1b5e20,#2e7d32,#66bb6a)}
+            .swatch-midnight{background:linear-gradient(90deg,#121212,#2c3e50,#5c6bc0)}
+            .swatch-lavender{background:linear-gradient(90deg,#6a1b9a,#8e24aa,#ce93d8)}
+            .swatch-neon{background:linear-gradient(90deg,#0f0,#00e5ff,#ff00c8)}
+            .swatch-rose{background:linear-gradient(90deg,#880e4f,#ec407a,#f8bbd0)}
+            .upload-card{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;border:1px dashed var(--border);margin-top:10px;background:var(--surface-alt);cursor:pointer}
+            .upload-card input{font-size:12px}
+            .theme-panel .ghost{margin-top:10px;width:100%}
+>>>>>>> Stashed changes
 
             .main{width:100%;max-width:900px;text-align:center;padding:36px}
 
@@ -50,8 +114,13 @@
 =======
             .btn{padding:10px 18px;border-radius:999px;border:1px solid transparent;background:var(--surface-alt);color:var(--page-text);font-weight:600;cursor:pointer}
             .btn.primary{background:var(--accent);color:var(--accent-text);border:none;box-shadow:0 8px 20px rgba(26,115,232,0.16)}
+<<<<<<< Updated upstream
             .btn.ghost{background:#e8eaed;color:#202124;border:1px solid #bdc1c6;font-weight:600}
             .btn.ghost:hover{background:#dadce0}
+>>>>>>> Stashed changes
+=======
+            .btn.ghost{background:transparent;border-color:var(--border);color:var(--page-text)}
+            .btn.ghost:hover{background:var(--surface-alt)}
 >>>>>>> Stashed changes
 
             @media (max-width:480px){
@@ -70,6 +139,7 @@
                 </h1>
 
                 <div class="search-wrap">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     <form class="search" id="main-search" action="https://www.google.com/search" method="get">
                         <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
@@ -138,6 +208,50 @@
                         </div>
                         </form>
 
+=======
+                    <div style="width:100%; max-width:760px; display:flex; flex-direction:column; align-items:center;">
+                        <form class="search" id="main-search" action="https://www.google.com/search" method="get" style="width:100%;">
+                            <div class="input-shell">
+                                <span class="input-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35m1.35-5.15a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                                <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
+                                <button type="button" class="icon-btn" id="btn-mic" title="Search by voice" aria-label="Search by voice">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3z" stroke="currentColor" stroke-width="2"/><path d="M19 11a7 7 0 01-14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                </button>
+                                <button type="button" class="icon-btn" id="btn-lens" title="Search by image" aria-label="Search by image">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M20 8V6a2 2 0 00-2-2h-2M20 16v2a2 2 0 01-2 2h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2"/></svg>
+                                </button>
+                                <button type="button" class="ai-mode-pill" id="btn-ai-mode">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z" fill="currentColor"/></svg>
+                                    <span>AI Mode</span>
+                                </button>
+                            </div>
+
+                            <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+                                <input type="submit" class="btn primary" name="btnK" value="Google Search">
+                                <input type="submit" class="btn" name="btnI" value="I'm Feeling Lucky">
+                                <button type="button" class="btn" id="btn-images">Images</button>
+                                <button type="button" class="btn" id="advanced-toggle">Advanced Search</button>
+                            </div>
+
+                            <div class="shortcuts-row">
+                                <a class="shortcut" href="https://chromewebstore.google.com" target="_blank" rel="noopener">
+                                    <span class="shortcut-circle">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v9l7.79 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                                    </span>
+                                    <span class="shortcut-label">Web Store</span>
+                                </a>
+                                <button type="button" class="shortcut" id="btn-add-shortcut">
+                                    <span class="shortcut-circle">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                    </span>
+                                    <span class="shortcut-label">Add shortcut</span>
+                                </button>
+                            </div>
+                        </form>
+
+>>>>>>> Stashed changes
                         <!-- Advanced Search Panel -->
                         <form id="advanced-panel" action="https://www.google.com/search" method="get" style="display:none;width:100%;margin-top:18px;text-align:left;padding:18px;border-radius:12px;border:1px solid var(--border);background:var(--surface-alt)">
                             <div style="font-size:13px;font-weight:700;margin-bottom:14px;color:var(--page-text);opacity:.85">Advanced Search</div>
@@ -170,6 +284,9 @@
                                     <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">File type</div>
                                     <select name="as_filetype" class="input" style="padding:10px;font-size:14px;background:var(--input-bg);color:var(--page-text)">
                                         <option value="">Any format</option>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                                         <option value="pdf">PDF</option>
                                         <option value="doc">DOC</option>
@@ -183,10 +300,13 @@
                                 </label>
                             </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
                                 <button type="submit" class="btn primary">Search</button>
                                 <button type="button" class="btn" id="adv-images">Search Images</button>
 =======
+=======
+>>>>>>> Stashed changes
                             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
                                 <label style="flex:1;min-width:200px">
                                     <div style="font-size:12px;color:var(--page-text);opacity:.75;margin-bottom:6px">Language</div>
@@ -215,6 +335,9 @@
                                         <option value="y">Past year</option>
                                     </select>
                                 </label>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                             </div>
                             <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px">
@@ -223,7 +346,10 @@
                             </div>
                         </form>
                     </div>
+<<<<<<< Updated upstream
                 </div>
+=======
+>>>>>>> Stashed changes
             </main>
         </div>
     </body>
@@ -341,15 +467,29 @@
             clearImageBtn.addEventListener('click', () => applyBackgroundImage(''));
         }
 
+<<<<<<< Updated upstream
         if(themeToggle && themePanel){
             themeToggle.addEventListener('click', () => themePanel.classList.toggle('open'));
             document.addEventListener('click', (e) => {
                 if(!themePanel.contains(e.target) && !themeToggle.contains(e.target)){
                     themePanel.classList.remove('open');
+=======
+        const btnImages = document.getElementById('btn-images');
+        const qInput = document.getElementById('q');
+
+        if(btnImages){
+            btnImages.addEventListener('click', () => {
+                const q = qInput.value.trim();
+                if(q){
+                    window.location.href = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(q);
+                } else {
+                    window.location.href = 'images.html';
+>>>>>>> Stashed changes
                 }
             });
         }
 
+<<<<<<< Updated upstream
         // ── Main search buttons ───────────────────────────────────────
         const qInput = document.getElementById('q');
 
@@ -361,6 +501,28 @@
                 window.location.href = 'images.html';
             }
         });
+=======
+        if(themeToggle && themePanel){
+            themeToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                themePanel.classList.toggle('open');
+            });
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if(themePanel.classList.contains('open') && !themePanel.contains(e.target) && !themeToggle.contains(e.target)) {
+                    themePanel.classList.remove('open');
+                }
+            });
+        }
+
+        if(advToggle && advPanel){
+            advToggle.addEventListener('click', () => {
+                const isOpen = advPanel.style.display !== 'none';
+                advPanel.style.display = isOpen ? 'none' : 'block';
+                advToggle.textContent = isOpen ? 'Advanced Search' : 'Hide Advanced';
+            });
+        }
+>>>>>>> Stashed changes
 
         // ── Advanced Search toggle ────────────────────────────────────
         if(advToggle && advPanel){
