@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Search</title>
+        <style>
+            *{box-sizing:border-box}
+            html,body{height:100%}
+            body{
+                margin:0;
+                font-family: Arial, Helvetica, sans-serif;
+                background:#ffffff;
+                color:#202124;
+            }
+
+            .header{position:fixed;top:14px;right:24px;font-size:13px;color:#5f6368}
+
+            .container{min-height:100vh;display:flex;align-items:center;justify-content:center}
+
+            .main{width:100%;max-width:900px;text-align:center;padding:36px}
+
+            .logo{font-weight:700;font-size:88px;margin:0 0 22px;letter-spacing:-0.02em}
+            .logo span{display:inline-block}
+            .logo .c1{color:#4285f4}
+            .logo .c2{color:#ea4335}
+            .logo .c3{color:#fbbc05}
+            .logo .c4{color:#4285f4}
+            .logo .c5{color:#34a853}
+            .logo .c6{color:#ea4335}
+
+            .search-wrap{display:flex;justify-content:center}
+            .search{width:clamp(420px,70vw,760px)}
+
+            .input{
+                width:100%;
+                padding:16px 18px;
+                font-size:20px;
+                border-radius:999px;
+                border:1px solid #dfe1e5;
+                outline:none;
+                box-shadow:0 4px 12px rgba(32,33,36,0.08);
+            }
+            .input:focus{box-shadow:0 6px 18px rgba(26,115,232,0.14);border-color:#1a73e8}
+
+            .actions{margin-top:20px;display:flex;justify-content:center;gap:12px}
+            .btn{padding:10px 18px;border-radius:999px;border:1px solid transparent;background:#f8f9fa;color:#3c4043;font-weight:600;cursor:pointer}
+            .btn.primary{background:#1a73e8;color:#fff;border:none;box-shadow:0 8px 20px rgba(26,115,232,0.16)}
+
+            @media (max-width:480px){
+                .logo{font-size:56px}
+                .input{font-size:16px;padding:12px}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header"><a href="https://mail.google.com" style="color:inherit;text-decoration:none">Gmail</a>&nbsp;&nbsp;<a href="https://www.google.com/imghp" style="color:inherit;text-decoration:none">Images</a></div>
+        <div class="container">
+            <main class="main">
+                <h1 class="logo" aria-label="Google">
+                    <span class="c1">G</span><span class="c2">o</span><span class="c3">o</span>
+                    <span class="c4">g</span><span class="c5">l</span><span class="c6">e</span>
+                </h1>
+
+                <div class="search-wrap">
+                    <form class="search" id="main-search" action="https://www.google.com/search" method="get">
+                        <input class="input" id="q" type="text" name="q" placeholder="Search Google or type a URL" autocomplete="off">
+                        <input type="hidden" name="tbm" id="tbm" value="">
+
+                        <div style="margin-top:12px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+                            <button type="submit" class="btn primary" id="btn-search">Google Search</button>
+                            <button type="button" class="btn" id="btn-images">Search Images</button>
+                            <button type="button" class="btn" id="advanced-toggle">Advanced Search</button>
+                        </div>
+
+                        <div id="advanced-panel" style="display:none;margin-top:18px;text-align:left;max-width:760px;margin-left:auto;margin-right:auto;padding:14px;border-radius:12px;border:1px solid #e6e6e6;background:#fbfbfd">
+                            <div style="display:flex;gap:10px;flex-wrap:wrap">
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">All these words</div><input name="as_q" class="input" style="padding:10px;font-size:14px" placeholder="all these words"></label>
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Exact phrase</div><input name="as_epq" class="input" style="padding:10px;font-size:14px" placeholder="exact phrase"></label>
+                            </div>
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Any of these words</div><input name="as_oq" class="input" style="padding:10px;font-size:14px" placeholder="any of these words"></label>
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">None of these words</div><input name="as_eq" class="input" style="padding:10px;font-size:14px" placeholder="none of these words"></label>
+                            </div>
+                            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">Site or domain</div><input name="as_sitesearch" class="input" style="padding:10px;font-size:14px" placeholder="example.com"></label>
+                                <label style="flex:1;min-width:200px"><div style="font-size:12px;color:#5f6368;margin-bottom:6px">File type</div>
+                                    <select name="as_filetype" class="input" style="padding:10px;font-size:14px">
+                                        <option value="">any</option>
+                                        <option value="pdf">PDF</option>
+                                        <option value="doc">DOC</option>
+                                        <option value="xls">XLS</option>
+                                        <option value="ppt">PPT</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+                                <button type="submit" class="btn primary">Search</button>
+                                <button type="button" class="btn" id="adv-images">Search Images</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
+
+<script>
+    (function(){
+        const advToggle = document.getElementById('advanced-toggle');
+        const advPanel = document.getElementById('advanced-panel');
+        const btnImages = document.getElementById('btn-images');
+        const advImages = document.getElementById('adv-images');
+        const tbm = document.getElementById('tbm');
+        const mainForm = document.getElementById('main-search');
+
+        if(advToggle){
+            advToggle.addEventListener('click', ()=>{
+                if(advPanel.style.display === 'none' || advPanel.style.display==='') advPanel.style.display='block'; else advPanel.style.display='none';
+            });
+        }
+
+        function submitAsImages(){
+            tbm.value='isch';
+            mainForm.submit();
+            tbm.value='';
+        }
+
+        if(btnImages) btnImages.addEventListener('click', submitAsImages);
+        if(advImages) advImages.addEventListener('click', submitAsImages);
+
+        // Ensure normal submit doesn't include tbm
+        mainForm.addEventListener('submit', ()=>{ if(!tbm.value) tbm.removeAttribute('value'); });
+    })();
+</script>
